@@ -82,8 +82,8 @@ class Corpus(proto.Message):
 
 
 class Document(proto.Message):
-    r"""A ``Document`` is a collection of ``Chunk``\ s. A ``Corpus`` can
-    have a maximum of 10,000 ``Document``\ s.
+    r"""A ``Document`` is a collection of ``Chunk``s. A ``Corpus`` can
+    have a maximum of 10,000 ``Document``s.
 
     Attributes:
         name (str):
@@ -310,7 +310,7 @@ class Condition(proto.Message):
 class Chunk(proto.Message):
     r"""A ``Chunk`` is a subpart of a ``Document`` that is treated as an
     independent unit for the purposes of vector representation and
-    storage. A ``Corpus`` can have a maximum of 1 million ``Chunk``\ s.
+    storage. A ``Corpus`` can have a maximum of 1 million ``Chunk``s.
 
     Attributes:
         name (str):
