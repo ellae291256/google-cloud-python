@@ -36,7 +36,7 @@ __protobuf__ = proto.module(
 
 
 class Corpus(proto.Message):
-    r"""A ``Corpus`` is a collection of ``Document``\ s. A project can
+    r"""A ``Corpus`` is a collection of ``Document``\s. A project can
     create up to 5 corpora.
 
     Attributes:
