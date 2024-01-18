@@ -1,7 +1,4 @@
-on:
-  pull_request:
-    branches:
-      - main
+on: push
 name: docs
 
 permissions:
@@ -10,6 +7,11 @@ permissions:
 jobs:
   docs:
     runs-on: ubuntu-latest
+    services:
+      pypi_wayback:
+        image: ghcr.io/waleko/pypi-wayback
+        ports:
+          - 8629:8080
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -35,6 +37,11 @@ jobs:
         ci/run_conditional_tests.sh
   docfx:
     runs-on: ubuntu-latest
+    services:
+      pypi_wayback:
+        image: ghcr.io/waleko/pypi-wayback
+        ports:
+          - 8629:8080
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -58,3 +65,7 @@ jobs:
         PY_VERSION: "3.10"
       run: |
         ci/run_conditional_tests.sh
+
+env:
+  PIP_INDEX_URL: http://localhost:8629/2024-01-18
+  UV_INDEX_URL: http://localhost:8629/2024-01-18
